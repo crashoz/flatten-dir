@@ -21,7 +21,7 @@ const src = process.argv[2];
 const dst = process.argv[3];
 walkDir(src, function(filePath) { 
   const oldPath = filePath.substring(src.length+1);
-  const newPath = oldPath.replace('/', '_');
+  const newPath = oldPath.replace(path.sep, '_');
 
   fs.copyFileSync(path.join(src, oldPath), path.join(dst, newPath));
 });
